@@ -21,4 +21,14 @@ class EventsController < ApplicationController
     @event = Event.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @event = Event.find_by(id: params[:id])
+    @event.update(
+      name: params[:name] || @event.name,
+      date: params[:date] || @event.date,
+      description: params[:description] || @event.description
+    )
+    render :show
+  end
 end

@@ -27,4 +27,16 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal ["id", "name", "date", "description"], data.keys
   end
+
+  test "update" do
+    event = Event.first
+    patch "/events/#{event.id}.json", params: {
+      name: "updated name"
+    }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal "updated name", data["name"]
+
+  end
 end
