@@ -7,7 +7,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         name: "Test",
         email: "test@test.com",
         password: "password",
-        password_confirmation: "password"
+        password_confirmation: "password",
+        role: "test role"
       }
       assert_response 201
     end
