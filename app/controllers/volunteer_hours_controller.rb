@@ -22,4 +22,13 @@ class VolunteerHoursController < ApplicationController
     @volunteer_hour = VolunteerHour.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @volunteer_hour = VolunteerHour.find_by(id: params[:id])
+    @volunteer_hour.update(
+      hours: params[:hours] || @volunteer_hour.hours,
+      date: params[:date] || @volunteer_hour.date
+    )
+    render :show
+  end
 end

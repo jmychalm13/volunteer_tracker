@@ -28,4 +28,15 @@ class VolunteerHoursControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal ["id", "user_id", "event_id", "hours", "date"], data.keys
   end
+
+  test "update" do
+    volunteer_hour = VolunteerHour.first
+    patch "/volunteer_hours/#{volunteer_hour.id}.json", params: {
+      hours: 4
+    }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal 4, data["hours"]
+  end
 end
