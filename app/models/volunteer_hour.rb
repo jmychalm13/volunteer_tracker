@@ -1,0 +1,2 @@
+class VolunteerHour < ApplicationRecord
+end
