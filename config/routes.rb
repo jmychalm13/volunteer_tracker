@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
 
   resources :events
+
+  resources :volunteer_hours
 end
