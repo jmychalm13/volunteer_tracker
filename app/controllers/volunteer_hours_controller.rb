@@ -31,4 +31,10 @@ class VolunteerHoursController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @volunteer_hour = VolunteerHour.find_by(id: params[:id])
+    @volunteer_hour.destroy
+    render json: {message: "VolunteerHour destroyed successfully"}
+  end
 end

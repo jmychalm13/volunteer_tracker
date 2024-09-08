@@ -39,4 +39,11 @@ class VolunteerHoursControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal 4, data["hours"]
   end
+
+  test "destroy" do
+    assert_difference "VolunteerHour.count", -1 do
+      delete "/volunteer_hours/#{VolunteerHour.first.id}.json"
+      assert_response 200
+    end
+  end
 end
