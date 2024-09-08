@@ -31,4 +31,10 @@ class EventsController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @event = Event.find_by(id: params[:id])
+    @event.destroy
+    render json: {message: "Event.destroyed successfully"}
+  end
 end
