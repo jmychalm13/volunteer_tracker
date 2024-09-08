@@ -17,4 +17,9 @@ class VolunteerHoursController < ApplicationController
       render json: {errors: @volunteer_hour.errors.full_messages}, status: :bad_request
     end
   end
+
+  def show
+    @volunteer_hour = VolunteerHour.find_by(id: params[:id])
+    render :show
+  end
 end

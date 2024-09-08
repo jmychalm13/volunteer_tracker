@@ -20,4 +20,12 @@ class VolunteerHoursControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/volunteer_hours/#{VolunteerHour.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "user_id", "event_id", "hours", "date"], data.keys
+  end
 end
