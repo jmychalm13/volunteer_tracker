@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   patch "/users/:id" => "users#update"
 
   post "/sessions" => "sessions#create"
+
+  resources :events
 end
